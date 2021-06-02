@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-
-import org.jetbrains.annotations.NotNull;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -17,11 +19,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.restaurantmenu.ui.main.UserModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+import static android.text.TextUtils.isEmpty;
+
 public class CustomerSignUp extends Fragment implements View.OnClickListener {
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
-
-
+    EditText cMail, cPassword, cName, cNumber;
+    Button Signup;
+    RadioButton cMale, cFemale, Gender;
+    RadioGroup cGender;
+    private FirebaseAuth mAuth;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +44,46 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
         initDatePicker();
         dateButton.setText(getTodaysDate());
         dateButton.setOnClickListener(this);
+        cMail = view.findViewById(R.id.customerEmail);
+        cPassword = view.findViewById(R.id.customerPassword);
+        cName = view.findViewById(R.id.customerName);
+        cNumber = view.findViewById(R.id.customerPhone);
+        Signup = view.findViewById(R.id.customerSubmit);
+        cMale = view.findViewById(R.id.genderMale);
+//        cFemale = view.findViewById(R.id.genderFemale);
+//        cGender = view.findViewById(R.id.customerGender);
+
+        Signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isEmpty(cMail.getText().toString()) || isEmpty(cPassword.getText().toString()) || isEmpty(cName.getText().toString()) || isEmpty(cNumber.getText().toString())){
+                    Toast.makeText(getContext(), "Please fill out all fields properly", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Gender = cGender.findViewById(cGender.getCheckedRadioButtonId());
+                    mAuth.createUserWithEmailAndPassword(cMail.getText().toString(), cPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                UserModel user = new UserModel(cMail.getText().toString(), cName.getText().toString(),cNumber.getText().toString(), Gender.getText().toString());
+                                FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
+                                            Toast.makeText(getContext(), "Registration Successful. Verification email has been sent to your email address.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                            else {
+                                Toast.makeText(getContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
         return  view;
     }
     private String getTodaysDate()

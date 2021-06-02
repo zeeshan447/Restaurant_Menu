@@ -68,21 +68,63 @@
 
         />
 
-        <RadioGroup
-            android:id="@+id/customerGender"
+    <RadioGroup
+        android:id="@+id/customerGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customerdate"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+
+        >
+        <RadioButton
+            android:id="@+id/genderMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/customerdate"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="30dp"
-            
-            >
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            
-        </RadioGroup>
+            android:text="Male"
+            android:textColor="#F5F9FF"
+            android:buttonTint="#F5F9FF"
+
+            />
+        <RadioButton
+            android:id="@+id/genderFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textColor="#F5F9FF"
+            android:buttonTint="#F5F9FF"
+
+            />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/customerPhone"
+        android:layout_below="@+id/customerGender"
+        android:hint="Please Enter Your Phone #"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/customerSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customerPhone"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Register"
+        android:textColor="#F5F9FF"
+        android:background="@drawable/button_round"
+
+        />
 
 
 
