@@ -46,10 +46,12 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
         dateButton.setOnClickListener(this);
         cMail = view.findViewById(R.id.customerEmail);
         cPassword = view.findViewById(R.id.customerPassword);
+        mAuth = FirebaseAuth.getInstance();
         cName = view.findViewById(R.id.customerName);
         cNumber = view.findViewById(R.id.customerPhone);
         Signup = view.findViewById(R.id.customerSubmit);
         cMale = view.findViewById(R.id.genderMale);
+        cGender = view.findViewById(R.id.customerGender);
 //        cFemale = view.findViewById(R.id.genderFemale);
 //        cGender = view.findViewById(R.id.customerGender);
 
@@ -77,7 +79,7 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
                                 });
                             }
                             else {
-                                Toast.makeText(getContext(), "Please check your internet connection", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), , Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
