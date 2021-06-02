@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#24253D"
+    >
+
+    <EditText
+        android:id="@+id/customerEmail"
+        android:hint="Please Enter Your Email"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="80px"
+        android:textAlignment="center"
+
+        android:gravity="center" />
+    <EditText
+        android:id="@+id/customerName"
+        android:layout_below="@+id/customerEmail"
+        android:hint="Please Enter Your Name"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+
+        />
+    <EditText
+        android:id="@+id/customerPassword"
+        android:layout_below="@+id/customerName"
+        android:hint="Please Enter Your Password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+        <TextView
+            android:id="@+id/cutomerDob"
+            android:layout_below="@id/customerPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#F5F9FF"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:text="Select Date Of Birth"
+            android:textSize="20sp"
+            />
+    <Button
+        android:id="@+id/customerdate"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/cutomerDob"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_round"
+        android:text="JAN 01 2020"
+        android:textColor="#F5F9FF"
+        style="?android:spinnerStyle"
+        android:textAlignment="center"
+        android:gravity="center"
+
+        />
+
+        <RadioGroup
+            android:id="@+id/customerGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/customerdate"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            
+        </RadioGroup>
+
+
+
+</RelativeLayout>
