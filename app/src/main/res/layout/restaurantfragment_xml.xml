@@ -1,12 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#24253D"
+    >
+    <EditText
+        android:id="@+id/restaurantName"
+        android:hint="Please Enter Your Restaurant Name"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="300px"
+        android:textAlignment="center"
 
-    <TextView
-        android:text="Hello Pakistan"
-        android:layout_width="wrap_content"
+        android:gravity="center" />
+
+    <EditText
+        android:id="@+id/restaurantEmail"
+        android:layout_below="@+id/restaurantName"
+        android:hint="Please Enter Your Email"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20px"
+        android:background="@drawable/edit_round"
+        android:textAlignment="center"
+
+        android:gravity="center" />
+
+
+    <EditText
+        android:id="@+id/restaurantPassword"
+        android:layout_below="@+id/restaurantEmail"
+        android:hint="Please Enter Your Password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+
+    <EditText
+        android:id="@+id/restautantCapacity"
+        android:layout_below="@+id/restaurantPassword"
+        android:hint="Please Enter Your Sitting Capacity"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="number"
+        />
+    <EditText
+        android:id="@+id/restaurantAddress"
+        android:layout_below="@+id/restautantCapacity"
+        android:hint="Please Enter Your Address"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="number"
+        />
+
+
+    <EditText
+        android:id="@+id/restaurantPhone"
+        android:layout_below="@+id/restaurantAddress"
+        android:hint="Please Enter Your Phone #"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/edit_round"
+        android:layout_marginTop="20px"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:inputType="number"
+        />
+
+    <Button
+        android:id="@+id/restaurantSubmit"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/restaurantPhone"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:text="Register"
+        android:textColor="#F5F9FF"
+        android:background="@drawable/button_round"
+
         />
 
 </RelativeLayout>
