@@ -115,7 +115,7 @@
 
     <Button
         android:id="@+id/customerSubmit"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/customerPhone"
         android:layout_centerInParent="true"
