@@ -54,7 +54,6 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
         cGender = view.findViewById(R.id.customerGender);
 //        cFemale = view.findViewById(R.id.genderFemale);
 //        cGender = view.findViewById(R.id.customerGender);
-
         Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +70,7 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
                                 FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
+
                                         if(task.isSuccessful()){
                                             FirebaseAuth.getInstance().getCurrentUser().sendEmailVerification();
                                             Toast.makeText(getContext(), "Registration Successful. Verification email has been sent to your email address.", Toast.LENGTH_SHORT).show();
@@ -79,7 +79,7 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
                                 });
                             }
                             else {
-                                Toast.makeText(getContext(), , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "ajlsjdklask" , Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
