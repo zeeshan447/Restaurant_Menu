@@ -79,7 +79,7 @@ public class CustomerSignUp extends Fragment implements View.OnClickListener {
                                 });
                             }
                             else {
-                                Toast.makeText(getContext(), "ajlsjdklask" , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "ajlsjdklsask" , Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
